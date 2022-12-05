@@ -23,7 +23,6 @@ logins <- read_csv(
   )
 
 p1 <- logins |>
-  filter(str_detect(username, "^[a-z]{2}[0-9]{5}$|^[a-z]{1}[0-9]{6}$")) |>
   filter(type == "session_start") |>
   group_by(quarter) |>
   mutate(quarterly_users = length(unique(username))) |>
